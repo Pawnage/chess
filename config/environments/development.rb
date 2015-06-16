@@ -1,6 +1,10 @@
 Chess::Application.configure do
+<<<<<<< HEAD
   config.action_mailer.default_url_options = { :host => 'pawnage.herokuapp.com' }
 
+=======
+  config.action_mailer.default_url_options = { :host => 'localhost:3030' }
+>>>>>>> 5787431e116c2b5e6b51c9766c72ae2a94b95ea8
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
