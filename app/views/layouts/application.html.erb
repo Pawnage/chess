@@ -8,6 +8,11 @@
 </head>
 <body>
 
+<%-# Devise flash alerts to notify user of successful or unsuccessful sign-in #-%> 	
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+<%-# end #-%>
+	
 <%= yield %>
 
 </body>
