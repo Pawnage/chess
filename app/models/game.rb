@@ -7,13 +7,13 @@ class Game < ActiveRecord::Base
 
 	def initialize
 		@game = []
+	
 		#leave coloring of squares completely to bootstrap?
 	end
 
 	def populate_board!
 		
-		#populate back rows from both ends going in
-		#rook,knight,bishop,queen,king,bishop,knight,rook
+		#populate front rows
 		8.times do |pawn|
 			@game << Piece.new(pawn, white)
 		end
@@ -22,6 +22,8 @@ class Game < ActiveRecord::Base
 			@game << Piece.new(pawn, black)
 		end
 
+		#populate back rows from both ends going in
+		#rook,knight,bishop,queen,king,bishop,knight,rook
 		2.times do |rook|		
 			@game << Piece.new(rook,white)
 		end
