@@ -16,6 +16,27 @@ ActiveRecord::Schema.define(version: 20150616210031) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "games", force: true do |t|
+    t.integer  "player_white"
+    t.integer  "player_black"
+    t.integer  "player_turn"
+    t.integer  "winner"
+    t.integer  "moves"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pieces", force: true do |t|
+    t.integer  "game_id"
+    t.integer  "row_position"
+    t.integer  "col_position"
+    t.string   "color"
+    t.string   "piece_type"
+    t.boolean  "alive"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "players", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
