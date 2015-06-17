@@ -1,11 +1,7 @@
 Chess::Application.routes.draw do
   
   devise_for :players
-<<<<<<< HEAD
-=======
-  # Hook up landing page route 
-  root 'static_page#index'
->>>>>>> 5787431e116c2b5e6b51c9766c72ae2a94b95ea8
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
