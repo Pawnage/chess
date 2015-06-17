@@ -27,12 +27,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-<<<<<<< HEAD
 # Add devise gem to handle user signups
 gem 'devise', '>= 3.2.4'
 
- 
->>>>>>> 5787431e116c2b5e6b51c9766c72ae2a94b95ea8
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false 
