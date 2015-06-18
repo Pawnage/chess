@@ -1,10 +1,6 @@
 class PlayersController < ApplicationController
 
-	def new
-	end
-
-
-	def create
+	def show
 	end
 
 
@@ -13,6 +9,7 @@ private
 # and game since player id is attached to a color in a game
 # but it could be a different color in each game
 	def player_params
-		params.require(:player).permit()
+		params.require(:player).permit(...)
+	end
 
 end
