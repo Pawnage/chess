@@ -1,6 +1,7 @@
 Chess::Application.routes.draw do
   
   devise_for :players
+  resource :dashboard, :only => [:show]
   resources :players, :only => [:create, :show]
   resources :games, :only => [:new, :create, :show]
   resources :pieces, :only => [:create, :show, :update]
