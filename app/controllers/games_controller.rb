@@ -6,13 +6,12 @@ class GamesController < ApplicationController
 
 	def create
 		@game = Game.create(game_params)
-		@game.populate_board!
 	end
 
 	private
 
 	def game_params
-		params.require(:games).permit(:player_white, :player_black, :player_turn, :moves)
+		params.require(:game).permit(:player_white, :player_black, :player_turn, :moves)
 	end
 
 
