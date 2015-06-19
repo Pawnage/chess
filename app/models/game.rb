@@ -5,46 +5,50 @@ class Game < ActiveRecord::Base
 	after_create :populate_board!
 
 
-	def initialize
-		@game = []
-
-		#leave coloring of squares completely to bootstrap?
+	def initialize()
+		#creates empty array to store 32 pieces
+		@set = []
 	end
 
 	def populate_board!
 		
 		#populate front rows
-		8.times do |pawn|
-			@game << Piece.new(pawn, white)
-			@game << Piece.new(pawn, black)
+		(0..7).each do |n|
+			@set << Piece.new(Pawn, white, 1, n)
+			@set << Piece.new(Pawn, black, 6, n)
 		end
 
 		#populate back rows
 		#rook,knight,bishop,queen,king,bishop,knight,rook
-		2.times do |rook|		
-			@game << Piece.new(rook,white)		
-			@game << Piece.new(rook,black)
-		end
+		#rooks		
+			@set << Piece.new(Rook, white, 0, 0)
+			@set << Piece.new(Rook, white, 0, 7)
+			@set << Piece.new(Rook, black, 7, 0)
+			@set << Piece.new(Rook, black, 7, 7)
 		
-		2.times do |knight|		
-			@game << Piece.new(knight,white)		
-			@game << Piece.new(knight,black)
-		end
+		#knights	
+			@set << Piece.new(Knight, white, 0, 2)		
+			@set << Piece.new(Knight, white, 0, 6)
+			@set << Piece.new(Knight, black, 7, 2)
+			@set << Piece.new(Knight, black, 7, 6)
 		
-		2.times do |bishop|		
-			@game << Piece.new(bishop,white)	
-			@game << Piece.new(bishop,black)
-		end
+		#bishops		
+			@set << Piece.new(Bishop, white, 0, 3)
+			@set << Piece.new(Bishop, white, 0, 5)	
+			@set << Piece.new(Bishop, black, 7, 3)
+			@set << Piece.new(Bishop, black, 7, 5)
 
-		@game << Piece.new(queen,white)
-		@game << Piece.new(king,white)
+		#queens
+			@set << Piece.new(Queen, white, 0, 3)
+			@set << Piece.new(Queen, white, 7, 3)
 		
-		@game << Piece.new(queen,black)
-		@game << Piece.new(king,black)
+		#kings
+			@set << Piece.new(King, black, 0, 4)
+			@set << Piece.new(King, black, 7, 4)
 		
 		
 	end
-
 end
+
 
 
