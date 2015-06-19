@@ -8,13 +8,13 @@
 </head>
 <body>
 
-<!-- TOP NAV BAR ---->
+<!-- TOP NAV BAR -->
  <div id="wrap">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbƒar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -30,7 +30,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-			<%-# need to add player_signed_in? method to player model (MH 6-18-15) #-%>            
+			      <%-# need to add player_signed_in? method to player model (MH 6-18-15) #-%>            
             <%-# if player_signed_in? #-%>
               <li><%=link_to 'Sign in', new_player_session_path %></li>
               <li><%=link_to 'Sign out', destroy_player_session_path, :method => :delete %></li>
@@ -44,6 +44,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
 <%-# Devise flash alerts to notify user of successful or unsuccessful sign-in #-%>
 <% if notice.present? %>
   <p class="alert alert-info"><%= notice %></p>
@@ -53,10 +54,7 @@
 <% end %>
 <%-# end #-%>
 	
-</body>
 <%= yield %>
-</div>
-<br class="clr" />
  
 </body>
 </html>
