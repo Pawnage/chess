@@ -5,45 +5,53 @@ class Game < ActiveRecord::Base
 	after_create :populate_board!
 
 
-	def initialize
-		@game = []
-
-		#leave coloring of squares completely to bootstrap?
+	def initialize()
+		#creates empty array to store 32 pieces
+		@set = []
 	end
 
 	def populate_board!
 		
 		#populate front rows
 		8.times do |pawn|
-			@game << Piece.new(pawn, white)
-			@game << Piece.new(pawn, black)
+			@set << Piece.new(pawn, white)
+			@set << Piece.new(pawn, black)
 		end
 
 		#populate back rows
 		#rook,knight,bishop,queen,king,bishop,knight,rook
 		2.times do |rook|		
-			@game << Piece.new(rook,white)		
-			@game << Piece.new(rook,black)
+			@set << Piece.new(rook,white)		
+			@set << Piece.new(rook,black)
 		end
 		
 		2.times do |knight|		
-			@game << Piece.new(knight,white)		
-			@game << Piece.new(knight,black)
+			@set << Piece.new(knight,white)		
+			@set << Piece.new(knight,black)
 		end
 		
 		2.times do |bishop|		
-			@game << Piece.new(bishop,white)	
-			@game << Piece.new(bishop,black)
+			@set << Piece.new(bishop,white)	
+			@set << Piece.new(bishop,black)
 		end
 
-		@game << Piece.new(queen,white)
-		@game << Piece.new(king,white)
+		@set << Piece.new(queen,white)
+		@set << Piece.new(king,white)
 		
-		@game << Piece.new(queen,black)
-		@game << Piece.new(king,black)
+		@set << Piece.new(queen,black)
+		@set << Piece.new(king,black)
 		
 		
 	end
+end
+
+require 'test_helper'
+
+class GameTest
+	test "create a new set" do
+		game = Game.create(:player_white => 1, :player_black => 2, :player_turn => 1, :winner => 1, :moves => 1)
+    	puts game.inspect
+    end
 
 end
 
