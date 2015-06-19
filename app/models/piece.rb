@@ -1,13 +1,6 @@
 class Piece < ActiveRecord::Base
 	belongs_to :game
 
-<<<<<<< HEAD
-	attr_accessor :type, :color, :row_position, :col_position
-
-	def initialize(type, color, row, col)
-		self.type = type
-		self.color = color
-=======
 	attr_accessor :row_position, :col_position, :color, :type, :alive
 
 	def initialize(row, col, color, type, alive=true)
