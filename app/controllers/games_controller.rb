@@ -17,6 +17,4 @@ class GamesController < ApplicationController
 		params.require(:game).permit(:player_white, :player_black, :player_turn, :winner, :moves)	  
 	end
 
-
-
 end

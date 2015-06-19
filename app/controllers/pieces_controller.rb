@@ -1,14 +1,17 @@
 class PiecesController < ApplicationController
 
-
 	def create
-		@piece = game.pieces.create(piece_params)
+		@pieces = current_game.pieces.create(piece_params)
 	end
 
-private
+  private
+
+  def current_game
+    @current_game ||= Game.find(params[:id])
+  end
 
 	def piece_params
-		params.require(:piece).permit(:game_id, :piece_type, :color, :row_position, :col_position)	  
+		params.require(:piece).permit(:game_id, :row_position, :col_position, :color, :type, :alive)	  
 	end
 
 end

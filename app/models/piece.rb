@@ -1,13 +1,14 @@
 class Piece < ActiveRecord::Base
 	belongs_to :game
 
-	attr_accessor :piece_type, :color, :row_position, :col_position
+	attr_accessor :row_position, :col_position, :color, :type, :alive
 
-	def initialize(type, color, row, col)
-		self.piece_type = type
-		self.color = color
+	def initialize(row, col, color, type, alive=true)
 		self.row_position = row
 		self.col_position = col
+		self.color = color
+		self.type = type
+		self.alive = alive
 	end
 	
 	def legal_move?
