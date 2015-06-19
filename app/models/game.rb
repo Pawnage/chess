@@ -13,46 +13,42 @@ class Game < ActiveRecord::Base
 	def populate_board!
 		
 		#populate front rows
-		8.times do |pawn|
-			@set << Piece.new(pawn, white)
-			@set << Piece.new(pawn, black)
+		(0..7).each do |n|
+			@set << Piece.new(Pawn, white, 1, n)
+			@set << Piece.new(Pawn, black, 6, n)
 		end
 
 		#populate back rows
 		#rook,knight,bishop,queen,king,bishop,knight,rook
-		2.times do |rook|		
-			@set << Piece.new(rook,white)		
-			@set << Piece.new(rook,black)
-		end
+		#rooks		
+			@set << Piece.new(Rook, white, 0, 0)
+			@set << Piece.new(Rook, white, 0, 7)
+			@set << Piece.new(Rook, black, 7, 0)
+			@set << Piece.new(Rook, black, 7, 7)
 		
-		2.times do |knight|		
-			@set << Piece.new(knight,white)		
-			@set << Piece.new(knight,black)
-		end
+		#knights	
+			@set << Piece.new(Knight, white, 0, 2)		
+			@set << Piece.new(Knight, white, 0, 6)
+			@set << Piece.new(Knight, black, 7, 2)
+			@set << Piece.new(Knight, black, 7, 6)
 		
-		2.times do |bishop|		
-			@set << Piece.new(bishop,white)	
-			@set << Piece.new(bishop,black)
-		end
+		#bishops		
+			@set << Piece.new(Bishop, white, 0, 3)
+			@set << Piece.new(Bishop, white, 0, 5)	
+			@set << Piece.new(Bishop, black, 7, 3)
+			@set << Piece.new(Bishop, black, 7, 5)
 
-		@set << Piece.new(queen,white)
-		@set << Piece.new(king,white)
+		#queens
+			@set << Piece.new(Queen, white, 0, 3)
+			@set << Piece.new(Queen, white, 7, 3)
 		
-		@set << Piece.new(queen,black)
-		@set << Piece.new(king,black)
+		#kings
+			@set << Piece.new(King, black, 0, 4)
+			@set << Piece.new(King, black, 7, 4)
 		
 		
 	end
 end
 
-require 'test_helper'
-
-class GameTest
-	test "create a new set" do
-		game = Game.create(:player_white => 1, :player_black => 2, :player_turn => 1, :winner => 1, :moves => 1)
-    	puts game.inspect
-    end
-
-end
 
 
