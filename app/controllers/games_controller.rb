@@ -8,11 +8,13 @@ class GamesController < ApplicationController
 		@game = Game.create(game_params)
 	end
 
+	def show
+	end
+	
 	private
 
 	def game_params
-		params.require(:game).permit(:player_white, :player_black, :player_turn, :winner, :moves)
-		  
+		params.require(:game).permit(:player_white, :player_black, :player_turn, :winner, :moves)	  
 	end
 
 
