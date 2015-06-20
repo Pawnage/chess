@@ -5,6 +5,5 @@ FactoryGirl.define do
     end
     password "something12345"
     password_confirmation "something12345"
-    association :game
   end
 end

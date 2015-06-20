@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-	has_many :players
+	belongs_to :player
 	has_many :pieces
 
 	after_create :populate_board!
@@ -11,33 +11,32 @@ class Game < ActiveRecord::Base
 
 	def populate_board!
 		# create black pieces
-		Piece.create(:game_id => id, :row_position => 8, :col_position => 1, :color => "black", :type => "rook", :alive => true)
-		Piece.create(:game_id => id, :row_position => 8, :col_position => 2, :color => "black", :type => "knight", :alive => true)
-		Piece.create(:game_id => id, :row_position => 8, :col_position => 3, :color => "black", :type => "bishop", :alive => true)
-		Piece.create(:game_id => id, :row_position => 8, :col_position => 4, :color => "black", :type => "queen", :alive => true)
-		Piece.create(:game_id => id, :row_position => 8, :col_position => 5, :color => "black", :type => "king", :alive => true)
-		Piece.create(:game_id => id, :row_position => 8, :col_position => 6, :color => "black", :type => "bishop", :alive => true)
-		Piece.create(:game_id => id, :row_position => 8, :col_position => 7, :color => "black", :type => "knight", :alive => true)
-		Piece.create(:game_id => id, :row_position => 8, :col_position => 8, :color => "black", :type => "rook", :alive => true)
+		Piece.create(:game_id => id, :row_position => 8, :col_position => 1, :color => "black", :type => "Rook", :alive => true)
+		Piece.create(:game_id => id, :row_position => 8, :col_position => 2, :color => "black", :type => "Knight", :alive => true)
+		Piece.create(:game_id => id, :row_position => 8, :col_position => 3, :color => "black", :type => "Bishop", :alive => true)
+		Piece.create(:game_id => id, :row_position => 8, :col_position => 4, :color => "black", :type => "Queen", :alive => true)
+		Piece.create(:game_id => id, :row_position => 8, :col_position => 5, :color => "black", :type => "King", :alive => true)
+		Piece.create(:game_id => id, :row_position => 8, :col_position => 6, :color => "black", :type => "Bishop", :alive => true)
+		Piece.create(:game_id => id, :row_position => 8, :col_position => 7, :color => "black", :type => "Knight", :alive => true)
+		Piece.create(:game_id => id, :row_position => 8, :col_position => 8, :color => "black", :type => "Rook", :alive => true)
 
 		(1..8).each do |col|
-      Piece.create(:game_id => id, :row_position => 7, :col_position => col, :color => "black", :type => "pawn", :alive => true)
+      Piece.create(:game_id => id, :row_position => 7, :col_position => col, :color => "black", :type => "Pawn", :alive => true)
 		end
 
     # create white pieces
     (1..8).each do |col|
-      Piece.create(:game_id => id, :row_position => 2, :col_position => col, :color => "white", :type => "pawn", :alive => true)
+      Piece.create(:game_id => id, :row_position => 2, :col_position => col, :color => "white", :type => "Pawn", :alive => true)
 		end
 
-    Piece.create(:game_id => id, :row_position => 1, :col_position => 1, :color => "white", :type => "rook", :alive => true)
-		Piece.create(:game_id => id, :row_position => 1, :col_position => 2, :color => "white", :type => "knight", :alive => true)
-		Piece.create(:game_id => id, :row_position => 1, :col_position => 3, :color => "white", :type => "bishop", :alive => true)
-		Piece.create(:game_id => id, :row_position => 1, :col_position => 4, :color => "white", :type => "queen", :alive => true)
-		Piece.create(:game_id => id, :row_position => 1, :col_position => 5, :color => "white", :type => "king", :alive => true)
-		Piece.create(:game_id => id, :row_position => 1, :col_position => 6, :color => "white", :type => "bishop", :alive => true)
-		Piece.create(:game_id => id, :row_position => 1, :col_position => 7, :color => "white", :type => "knight", :alive => true)
-		Piece.create(:game_id => id, :row_position => 1, :col_position => 8, :color => "white", :type => "rook", :alive => true)
-
+    Piece.create(:game_id => id, :row_position => 1, :col_position => 1, :color => "white", :type => "Rook", :alive => true)
+		Piece.create(:game_id => id, :row_position => 1, :col_position => 2, :color => "white", :type => "Knight", :alive => true)
+		Piece.create(:game_id => id, :row_position => 1, :col_position => 3, :color => "white", :type => "Bishop", :alive => true)
+		Piece.create(:game_id => id, :row_position => 1, :col_position => 4, :color => "white", :type => "Queen", :alive => true)
+		Piece.create(:game_id => id, :row_position => 1, :col_position => 5, :color => "white", :type => "King", :alive => true)
+		Piece.create(:game_id => id, :row_position => 1, :col_position => 6, :color => "white", :type => "Bishop", :alive => true)
+		Piece.create(:game_id => id, :row_position => 1, :col_position => 7, :color => "white", :type => "Knight", :alive => true)
+		Piece.create(:game_id => id, :row_position => 1, :col_position => 8, :color => "white", :type => "Rook", :alive => true)
 
 		# populate front rows
 		# (0..7).each do |n|
@@ -76,6 +75,3 @@ class Game < ActiveRecord::Base
 		# return @set
 	end
 end
-
-
-

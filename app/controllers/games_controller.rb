@@ -1,5 +1,4 @@
 class GamesController < ApplicationController
-
   def index
   	@games = Game.all
   end
@@ -22,5 +21,4 @@ class GamesController < ApplicationController
 	def game_params
 		params.require(:game).permit(:player_white, :player_black, :player_turn, :winner, :moves)	  
 	end
-
 end
