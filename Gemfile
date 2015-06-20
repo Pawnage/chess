@@ -32,6 +32,9 @@ gem 'jbuilder', '~> 1.2'
 # Add devise gem to handle user signups
 gem 'devise', '>= 3.2.4'
 
+# Add Factory Girl to create users, etc. for tests
+gem 'factory_girl_rails', '~> 4.0'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false 

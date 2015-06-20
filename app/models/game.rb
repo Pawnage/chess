@@ -4,7 +4,7 @@ class Game < ActiveRecord::Base
 
 	after_create :populate_board!
 
-	def initialize()
+	def initialize
 		#creates empty array to store 32 pieces
 		@set = []
 	end
