@@ -1,4 +1,5 @@
 class Piece < ActiveRecord::Base
+	belongs_to :player
 	belongs_to :game
 
 	attr_accessor :row_position, :col_position, :color, :type, :alive

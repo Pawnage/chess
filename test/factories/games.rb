@@ -5,6 +5,5 @@ FactoryGirl.define do
   	player_turn 1
   	winner nil
   	moves 10
-    association :player
   end
 end
