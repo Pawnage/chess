@@ -11,6 +11,7 @@ class Game < ActiveRecord::Base
 
 	def populate_board!		
 		#populate front rows
+		#row col color type alive
 		(0..7).each do |n|
 			@set << Piece.new(Pawn, white, 1, n)
 			@set << Piece.new(Pawn, black, 6, n)
