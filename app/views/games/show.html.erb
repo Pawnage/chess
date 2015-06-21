@@ -1,0 +1,19 @@
+<h1>Chessboard</h1>
+
+<table id="chessboard">
+  <% (0..7).each do |row| %>
+    <tr>
+      <% (0..7).each do |col| %>
+        <td></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<!-- (1..8).each do |row|
+  puts "<tr>"
+  (1..8).each do |col|
+    puts '<td x-position="#{row}" y-position="#{col}"></td>'
+  end
+  puts "</tr>"
+end -->
