@@ -4,15 +4,15 @@ class Game < ActiveRecord::Base
 
 	after_create :populate_board!
 
+
 	
 	def populate_board!		
-		#populate front rows
+		#populate front rows wth pawns
 		(0..7).each do |n|
 
 			pieces.create(:type => Pawn, :color => :player_white, :row_position => 1, :col_position => n)
 			
 		end
-
 
 	# 	#populate back rows
 	# 	#rook,knight,bishop,queen,king,bishop,knight,rook
@@ -44,8 +44,6 @@ class Game < ActiveRecord::Base
 		pieces.create(:type => King, :color => :player_white, :row_position => 0, :col_position => 4)
 		pieces.create(:type => King, :color => :player_black, :row_position => 7, :col_position => 4)
 	
+
 	end
 end
-
-
-
