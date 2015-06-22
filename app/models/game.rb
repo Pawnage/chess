@@ -13,6 +13,11 @@ class Game < ActiveRecord::Base
 			
 		end
 
+		(0..7).each do |n|
+			pieces.create(:type => 'Pawn', :color => :player_black, :row_position => 1, :col_position => n)
+			
+		end
+
 	# 	#populate back rows
 	# 	#rook,knight,bishop,queen,king,bishop,knight,rook
 	# 	#rooks		
