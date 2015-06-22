@@ -9,7 +9,6 @@ class Game < ActiveRecord::Base
 	def populate_board!		
 		#populate front rows wth pawns
 		(0..7).each do |n|
-
 			pieces.create(:type => Pawn, :color => :player_white, :row_position => 1, :col_position => n)
 			
 		end
