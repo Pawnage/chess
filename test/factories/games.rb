@@ -6,4 +6,5 @@ FactoryGirl.define do
   	association :player_white, factory: :player
   	association :player_black, factory: :player
   end
+ 
 end
