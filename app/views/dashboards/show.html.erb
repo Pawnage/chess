@@ -1,9 +1,8 @@
 <h1>My Dashboard</h1>
 
 <h2>All games currently in progress</h2>
-<%-# 6-24-15 currently routes to show action; change url path once index action is hooked up or Games.all line is moved to show in controller-MH #-%>
+<%-# 6-24-15 currently routes to show action; change url path once index action is hooked up-MH #-%>
 
-	
 <% @games.each do |game| %>
 	<h3 class="text-center"><%= link_to "Watch Game", game_path(@game) %></h3>
 	<br />
@@ -11,17 +10,18 @@
 	<%= link_to game_path, :class => 'btn btn-md btn-primary' %>
 <% end %>
 
+<hr />
 
 <%-# games player is participating in #-%>
 <h2>Games I am currently playing...</h2>
 <%= link_to "View game", game_path(current_game) %> 
 
+<hr />
+
 <%-# games player is watching #-%>
 <h2>Games I am watching...</h2>
 <%= link_to "Watch game", game_path(current_game) %> 
 
-
-<br />
 <%-# Creating a new game #-%>
 <h1>Start a New Game</h1>
 <%= link_to "New Game", new_game_path %>
