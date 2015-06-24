@@ -50,4 +50,11 @@ class Game < ActiveRecord::Base
 	
 
 	end
+
+	def in_progress?
+		#pair program this
+		#checks if white and black player ids are not nil to allow user to access 
+		#the game as a spectator via the controller.
+		#returns boolean to the call in the controller
+	end
 end
