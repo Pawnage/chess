@@ -23,8 +23,8 @@ class Game < ActiveRecord::Base
 	# 	#rooks		
 		pieces.create(:type => 'Rook', :color => :player_white, :row_position => 0, :col_position => 0)
 		pieces.create(:type => 'Rook', :color => :player_white, :row_position => 0, :col_position => 7)
-		pieces.create(:type => 'Rook', :color => :player_white, :row_position => 7, :col_position => 0)
-		pieces.create(:type => 'Rook', :color => :player_white, :row_position => 7, :col_position => 7)
+		pieces.create(:type => 'Rook', :color => :player_black, :row_position => 7, :col_position => 0)
+		pieces.create(:type => 'Rook', :color => :player_black, :row_position => 7, :col_position => 7)
 	
 		
 	# 	#knights

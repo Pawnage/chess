@@ -5,4 +5,6 @@ class GameTest < ActiveSupport::TestCase
  	game = FactoryGirl.create(:game)
     assert_equal 32, game.pieces.count
   end
+
+
 end
