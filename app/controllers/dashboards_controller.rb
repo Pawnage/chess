@@ -1,12 +1,18 @@
 class DashboardsController < ApplicationController
 	before_action :authenticate_player!
 
+#for both games that need a second player and games that can be watched as a spectator
 	def show
-		if @game.in_progress?
-			redirect_to game_path(@game)
+		if @current_game.in_progress?
+			redirect_to game_path(current_game)
 		else
-			@game.create
+			redirect_to new_game_path
+		end
 	end
-
+	
+	helper_method :current_game
+	def current_game
+		@current_game ||= Game.find(params[:id])
+	end
 
 end
