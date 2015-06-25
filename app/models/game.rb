@@ -35,9 +35,9 @@ class Game < ActiveRecord::Base
 
 		
 	# 	#bishops
-		pieces.create(:type => 'Bishop', :color => :player_white, :row_position => 0, :col_position => 3)
+		pieces.create(:type => 'Bishop', :color => :player_white, :row_position => 0, :col_position => 2)
 		pieces.create(:type => 'Bishop', :color => :player_white, :row_position => 0, :col_position => 5)
-		pieces.create(:type => 'Bishop', :color => :player_black, :row_position => 7, :col_position => 3)
+		pieces.create(:type => 'Bishop', :color => :player_black, :row_position => 7, :col_position => 2)
 		pieces.create(:type => 'Bishop', :color => :player_black, :row_position => 7, :col_position => 5)
 
 	# 	#queens
