@@ -28,9 +28,9 @@ class Game < ActiveRecord::Base
 	
 		
 	# 	#knights
-		pieces.create(:type => 'Knight', :color => :player_white, :row_position => 0, :col_position => 2)	
+		pieces.create(:type => 'Knight', :color => :player_white, :row_position => 0, :col_position => 1)	
 		pieces.create(:type => 'Knight', :color => :player_white, :row_position => 0, :col_position => 6)	
-		pieces.create(:type => 'Knight', :color => :player_black, :row_position => 7, :col_position => 2)	
+		pieces.create(:type => 'Knight', :color => :player_black, :row_position => 7, :col_position => 1)	
 		pieces.create(:type => 'Knight', :color => :player_black, :row_position => 7, :col_position => 6)	
 
 		
