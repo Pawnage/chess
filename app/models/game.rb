@@ -4,6 +4,9 @@ class Game < ActiveRecord::Base
 
 	after_create :populate_board!
 
+	def obstruction(x, y)
+    pieces.where(row_position: x, col_position: y).last
+	end
 
 	
 	def populate_board!		
