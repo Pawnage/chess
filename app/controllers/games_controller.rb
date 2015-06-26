@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   before_action :authenticate_player!, :only => [:new, :create]
 
   	def index
-  		@games = Game.all
+  		@games = Game.all.to_a.select { |g| !g.is_joined? }
   	end
 
   	def new
