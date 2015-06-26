@@ -8,6 +8,16 @@ class Game < ActiveRecord::Base
     pieces.where(row_position: x, col_position: y).last
 	end
 
+
+	def obstructed_positions #<= I think this needs to pass different args so individual piece args aren't hosed 
+		#fail NotImplementedError 'Pieces must implement #obstructed_positions'
+		# individual pieces should override piece.rb
+		# no obstructions for knight as it jumps over pieces
+  	# is there a way to shorten obstructed_positions array possibilities based on piece movement restrictions like straight lines and
+  	# diagonal?
+  		return self.pieces.to_a
+	end
+
 	
 	def populate_board!		
 		#populate front rows wth pawns
@@ -17,7 +27,7 @@ class Game < ActiveRecord::Base
 		end
 
 		(0..7).each do |n|
-			pieces.create(:type => 'Pawn', :color => "Black", :row_position => 1, :col_position => n)
+			pieces.create(:type => 'Pawn', :color => "Black", :row_position => 6, :col_position => n)
 			
 		end
 
