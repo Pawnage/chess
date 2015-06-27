@@ -2,6 +2,8 @@ class Piece < ActiveRecord::Base
 	belongs_to :player
 
   after_initialize :set_default_for_alive
+
+  attr_accessor :selected
 	
 	def obstructed_move?(x, y)
     obstruction_array = obstructed_positions(x, y)
@@ -14,6 +16,10 @@ class Piece < ActiveRecord::Base
       end
 	end
 
+  # for highlighting piece when selected
+  def selected!
+    self.selected = true
+  end
 
 	self.inheritance_column = :type
 
