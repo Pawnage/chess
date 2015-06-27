@@ -1,10 +1,41 @@
 class Knight < Piece
+
+
+	def legal_moves
+		moves_array = []
+
+		for x in 0..7
+			for y in 0..7
+				moves_array << [x, y]
+			end
+		end
+
+
+
+		return moves_array
+	end
 	
-	def legal_move?
+	def legal_move?(new_row_position, new_col_position)
 	end
 
 	def obstructed_positions(x, y)
   	#has no obstructed positions
+	end
+
+	def move(new_row_position, new_col_position)
+		current_row_position = self.row_position
+		current_col_position = self.col_position
+		color = self.color
+
+		# if obstructed(new_position_row, new_position_col)
+		# 	return false
+		# elsif ##check if move is not legal
+		# end
+
+
+		self.update_attributes(:row_position => new_row_position, :col_position => new_col_position)
+
+		return true
 	end
 
 end
