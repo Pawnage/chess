@@ -10,6 +10,14 @@ class PiecesController < ApplicationController
     render :template => "games/show"
   end
 
+  def update
+    @piece = Piece.find(params[:id])
+    row = params[:row_position]
+    col = params[:col_position]
+    @piece.update_attributes(:row_position => row, :col_position => col)
+    redirect_to game_path(@piece.game)
+  end
+
   private
 
   def current_game
