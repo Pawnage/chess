@@ -1,5 +1,6 @@
 class Piece < ActiveRecord::Base
 	belongs_to :player
+  belongs_to :game
 
   after_initialize :set_default_for_alive
 

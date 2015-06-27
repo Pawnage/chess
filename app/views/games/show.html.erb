@@ -1,19 +1,29 @@
-<h1>Chessboard</h1>
+<h1 class="text-center">Chessboard WIP</h1>
 
-<table id="chessboard">
-  <% (0..7).each do |row| %>
-    <tr>
-      <% (0..7).each do |col| %>
-        <td></td>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
+<br />
 
-<!-- (1..8).each do |row|
-  puts "<tr>"
-  (1..8).each do |col|
-    puts '<td x-position="#{row}" y-position="#{col}"></td>'
-  end
-  puts "</tr>"
-end -->
+<div class="col-xs-6 col-xs-offset-3">
+  <table id="chessboard">
+    <% 7.downto(0) do |row| %>
+      <tr>
+        <% 0.upto(7) do |col| %>
+          <td>
+            <% if piece = @pieces.detect { |piece| piece.row_position == row && piece.col_position == col && piece.alive } %>
+              <!-- todo: if not @selected_selected -->
+              <%= link_to piece_path(piece, :class => 'img-responsive') do %>
+                <%= render_piece(piece) %>
+              <% end %>
+              <!-- todo: if @selected_piece just render the piece -->
+            <% elsif @selected_piece %>
+              <%= link_to piece_path(@selected_piece, :row_position => row, :col_position => col), :class => 'movable', :method => :patch do %>
+                <div class="movable"></div>
+              <% end %>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+
+  <br /><br />
+</div>
