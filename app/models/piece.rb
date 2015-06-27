@@ -1,5 +1,7 @@
 class Piece < ActiveRecord::Base
 	belongs_to :player
+
+  after_initialize :set_default_for_alive
 	
 	def obstructed_move?(x, y)
     obstruction_array = obstructed_positions(x, y)
@@ -21,4 +23,8 @@ class Piece < ActiveRecord::Base
 
 	def legal_move?
 	end
+
+  def set_default_for_alive
+    self.alive = true if self.alive.nil?
+  end
 end
