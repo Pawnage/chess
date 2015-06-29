@@ -17,12 +17,9 @@ class GamesController < ApplicationController
 	end
 
 	def show
-		@game = Game.find(params[:id])
-		# if current_game.is_joined?
-		# 	redirect_to game_path(current_game)
-		# else
-		# 	redirect_to new_game_path
-		# end
+	  @game = Game.find(params[:id])
+	  @pieces = @game.pieces
+
 	end
 	
 	

@@ -3,6 +3,21 @@ class PiecesController < ApplicationController
 		@pieces = current_game.pieces.create(piece_params)
 	end
 
+  def show
+    @selected_piece = Piece.find(params[:id])
+    @selected_piece.selected!
+    @pieces = @selected_piece.game.pieces
+    render :template => "games/show"
+  end
+
+  def update
+    @piece = Piece.find(params[:id])
+    row = params[:row_position]
+    col = params[:col_position]
+    @piece.update_attributes(:row_position => row, :col_position => col)
+    redirect_to game_path(@piece.game)
+  end
+
   private
 
   def current_game
