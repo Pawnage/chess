@@ -9,6 +9,7 @@ class GamesController < ApplicationController
 	def create
 		@game = Game.create(:player_white => current_player.id, :player_black => nil, :player_turn => current_player.id, :winner => nil, :moves => 0)
 		redirect_to game_path(@game)
+
 	end
 
 	def show
