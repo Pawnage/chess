@@ -3,7 +3,7 @@ Chess::Application.routes.draw do
   devise_for :players
   resource :dashboard, :only => [:show]
   # resources :players, :only => [:create, :show]
-  resources :games, :only => [:new, :create, :show]
+  resources :games, :only => [:new, :create, :show, :index]
   resources :pieces, :only => [:create, :show, :update]
     
   # The priority is based upon order of creation: first created -> highest priority.
