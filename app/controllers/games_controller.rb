@@ -18,15 +18,19 @@ class GamesController < ApplicationController
 
 	def show
 		@game = Game.find(params[:id])
-		if @current_game.is_joined?
-			redirect_to game_path(@current_game)
-		else
-			redirect_to new_game_path
-		end
+		# if current_game.is_joined?
+		# 	redirect_to game_path(current_game)
+		# else
+		# 	redirect_to new_game_path
+		# end
 	end
 	
 	
 	private
+
+	def current_game
+		@current_game ||= Game.find(params[:id])
+	end
 
 	def game_params
 		params.require(:game).permit(:player_white_id, :player_black_id, :player_turn, :winner, :moves)	  

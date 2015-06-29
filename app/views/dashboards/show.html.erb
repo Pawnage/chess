@@ -4,24 +4,25 @@
 
 
 <% @games.each do |game| %>
-	<h3 class="text-center"><%= link_to "Watch Game", games_path(@game), :class => 'btn btn-md btn-primary' %> %></h3>
+	<h3 class="text-center"><%= link_to "Watch Game", games_path(game), :class => 'btn btn-md btn-primary' %> %></h3>
 	<br />
  
-<% end %>
+
 
 <hr />
 
-<%-# games player is participating in #-%>
-<h2>Games I am currently playing...</h2>
-<%= link_to "View my current game", game_path(current_game) %> 
+	<%-# games player is participating in #-%>
+	<h2>Games I am currently playing...</h2>
+	<%= link_to "View my current game", game_path(game) %> 
 
-<hr />
+	<hr />
 
-<%-# games player is watching #-%>
-<h2>Games I am watching...</h2>
-<%= link_to "Watch another game", game_path(current_game) %> 
+	<%-# games player is watching #-%>
+	<h2>Games I am watching...</h2>
+	<%= link_to "Watch another game", game_path(game) %> 
 
-<%-# Creating a new game #-%>
-<h1>Start a New Game</h1>
-<%= link_to "New Game", new_game_path %>
+	<%-# Creating a new game #-%>
+	<h1>Start a New Game</h1>
+	<%= link_to "New Game", new_game_path %>
 	
+<% end %>
