@@ -2,7 +2,8 @@ class GamesController < ApplicationController
   before_action :authenticate_player!, :only => [:new, :create]
 
   	def index
-  		@games = Game.all.to_a.select { |g| !g.is_joined? }
+  		@games = []
+  		@games << Game.all.to_a.select { |g| !g.is_joined? }
   	end
 
   	def new
@@ -18,6 +19,11 @@ class GamesController < ApplicationController
 
 	def show
 		@game = Game.find(params[:id])
+		if @current_game.is_joined?
+			redirect_to game_path(current_game)
+		else
+			redirect_to new_game_path
+		end
 	end
 	
 	
