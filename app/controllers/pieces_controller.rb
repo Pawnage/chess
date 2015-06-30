@@ -5,7 +5,6 @@ class PiecesController < ApplicationController
 
   def show
     @selected_piece = Piece.find(params[:id])
-    @selected_piece.selected!
     @pieces = @selected_piece.game.pieces
     render :template => "games/show"
   end
