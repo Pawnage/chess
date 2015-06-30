@@ -14,10 +14,10 @@ class GameTest < ActiveSupport::TestCase
   	assert_equal expected, actual
   end
 
-  test "legal_move_king" do
+  test "legal_move" do
   	game = FactoryGirl.create(:game)
-  	expected = 'King'
-  	actual = game.piece.legal_move_king?(0, 3)
+  	expected = "Rook"
+  	actual = game.piece.type.legal_move?(1, 1)
   	assert_equal expected, actual
   end
 end
