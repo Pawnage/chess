@@ -19,5 +19,5 @@ class GameTest < ActiveSupport::TestCase
   	expected = 'King'
   	actual = game.piece.legal_move_king?(0, 3)
   	assert_equal expected, actual
-
+  end
 end
