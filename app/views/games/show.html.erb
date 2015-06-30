@@ -8,18 +8,23 @@
       <tr>
         <% 0.upto(7) do |col| %>
           <td>
-            <% if piece = @pieces.detect { |piece| piece.row_position == row && piece.col_position == col && piece.alive } %>
+            <% if piece = @pieces.detect { |piece| piece.row_position == row && piece.col_position == col && piece.alive } %>              
               <% if @selected_piece.nil? %>
-                <%= link_to piece_path(piece, :class => 'img-responsive') do %>
+                <%= link_to piece_path(piece) do %>
                   <%= render_piece(piece) %>
                 <% end %>
               <% else %>
                 <!-- if a piece is selected, every cell (even occupied ones) is a link to update the positions of the selected piece -->
                 <%= link_to piece_path(@selected_piece, :row_position => row, :col_position => col), :method => :patch do %>
-                  <%= render_piece(piece) %>
+                  <% if piece == @selected_piece %>
+                    <!-- highlight the piece that is selected -->
+                    <%= render_piece(piece, true) %>
+                  <% else %>
+                    <%= render_piece(piece) %>
+                  <% end %>
                 <% end %>
               <% end %>
-            <% elsif @selected_piece %>
+            <% elsif @selected_piece %>              
               <%= link_to piece_path(@selected_piece, :row_position => row, :col_position => col), :class => 'movable', :method => :patch do %>
                 <div class="movable"></div>
               <% end %>

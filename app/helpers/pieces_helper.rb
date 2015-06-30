@@ -1,7 +1,6 @@
 module PiecesHelper
-  def render_piece(piece, opts = {})
-    classes = [opts[:class]]
-    classes << 'selected' if piece.selected
+  def render_piece(piece, selected_piece=nil)
+    classes = selected_piece ? ['img-responsive', 'selected'] : ['img-responsive']
     image_tag "#{piece.color.downcase}-#{piece.type.downcase}.svg", :class => classes.join(' ')
   end
 end
