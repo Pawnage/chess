@@ -5,7 +5,7 @@ class Game < ActiveRecord::Base
 	after_create :populate_board!
 
 	def obstruction(x, y)
-    pieces.where(row_position: x, col_position: y).last
+    	pieces.where(row_position: x, col_position: y).last
 	end
 
 
@@ -17,7 +17,6 @@ class Game < ActiveRecord::Base
   	# diagonal?
   		return self.pieces.to_a
 	end
-
 	
 	def populate_board!		
 		#populate front rows wth pawns
@@ -71,5 +70,11 @@ class Game < ActiveRecord::Base
 		return false
 	end
 
-
+	def legal_move_king?(x, y)
+		if (game.piece.row_position - x).abs = 1 or (game.piece.col_position - y).abs = 1
+			return true
+		else
+			return false
+		end	
+	end
 end
