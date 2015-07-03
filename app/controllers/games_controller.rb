@@ -13,14 +13,21 @@ class GamesController < ApplicationController
 	def create
 		@game = Game.create(:player_white_id => current_player.id, :player_black_id => nil, :player_turn => current_player.id, :winner => nil, :moves => 0)
 		redirect_to game_path(@game)
+
 	end
 
 	def show
 	  @game = Game.find(params[:id])
-    @pieces = @game.pieces
+	  @pieces = @game.pieces
+
 	end
 	
+	
 	private
+
+	def current_game
+		@current_game ||= Game.find(params[:id])
+	end
 
 	def game_params
 		params.require(:game).permit(:player_white_id, :player_black_id, :player_turn, :winner, :moves)	  
