@@ -6,7 +6,7 @@ class Piece < ActiveRecord::Base
 
   attr_accessor :selected
 	
-	def obstructed_move?(x, y)
+  def obstructed_move?(x, y)
     obstruction_array = obstructed_positions(x, y)
  
       #maybe return false if error
@@ -15,7 +15,7 @@ class Piece < ActiveRecord::Base
         # return true if obstruction found
         return true if game.obstruction(position[x], position[y])
       end
-	end
+  end
 
   # for highlighting piece when selected
   def selected!
@@ -30,6 +30,10 @@ class Piece < ActiveRecord::Base
 
 	def legal_move?
 	end
+
+  def capture?(x, y)
+    !Piece.where(game_id: game.id, row_position: x, col_position: y).not(color: color).empty?
+  end
 
   def set_default_for_alive
     self.alive = true if self.alive.nil?
