@@ -32,7 +32,7 @@ class Piece < ActiveRecord::Base
 	end
 
   def capture?(x, y)
-    !Piece.where(game_id: game.id, row_position: x, col_position: y).not(color: color).empty?
+    !Piece.where(game_id: game.id, row_position: x, col_position: y).where.not(color: color).empty?
   end
 
   def set_default_for_alive
