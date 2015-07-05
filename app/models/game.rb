@@ -72,11 +72,11 @@ class Game < ActiveRecord::Base
 
 	def legal_move?(x, y)
 		if game.piece.type == 'King'
-			if (game.piece.row_position - x).abs = 1 or (game.piece.col_position - y).abs = 1
+			if (game.piece.row_position - x).abs == 1 or (game.piece.col_position - y).abs == 1
 				return true		
 			end	
 		elsif game.piece.type == 'Rook'
-			if (game.piece.col_position - y).abs = 0
+			if (game.piece.col_position - y).abs == 0
 				return true
 			end
 		#...add conditions for legal move for other pieces here...
