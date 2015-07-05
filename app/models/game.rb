@@ -71,16 +71,45 @@ class Game < ActiveRecord::Base
 	end
 
 	def legal_move?(x, y)
+		
+		#no condition here for queen as she can move any amount of squares in any direction, i.e. will always return true
 		if game.piece.type == 'King'
-			if (game.piece.row_position - x).abs == 1 or (game.piece.col_position - y).abs == 1
+			if (piece.row_position - x).abs == 1 or (piece.col_position - y).abs == 1
 				return true		
 			end	
 		elsif game.piece.type == 'Rook'
-			if (game.piece.col_position - y).abs == 0
+		 	if (game.piece.row_position - x).abs == 0 or (game.piece.col_position - y).abs == 0 
+		 		#add conditions for kingside and queenside castling (i.e. rook moves horizontally (or vertically?) around king or queen)
 				return true
 			end
-		#...add conditions for legal move for other pieces here...
-		else
-			return false
+		elsif game.piece.type == 'Bishop'
+			#bishop can only move diagonally so easiest condition is to exclude any purely horiz. or vertical moves 
+			if (piece.row_position - x).abs != 0 or (piece.col_position - y).abs != 0
+				return true		
+			end	
+		elsif game.piece.type == 'Knight'
+			#knight moves two squares in horiz. or vertical then one space in the other of the two directions 
+			if ((piece.row_position - x).abs == 2 and (piece.col_position - y).abs == 1)) or ((piece.col_position - y).abs == 2 and (piece.row_position - x).abs == 1))
+				return true		
+			end	
+		
+		elsif game.piece.type == 'Pawn'
+			#pawns cannot move backward or left to right (ability to capture left to right handled by capture function)
+			if (game.piece.row_position - x) == 0 and (game.piece.col_position - y) == 1 
+				return true
+			# add conditions (and/or new methods) for promotion, en passant
+			else
+				return false
+			end
+		end
 	end
+
+	#handles alternate initial legal move by pawn
+	def move_two_squares?	
+		if game.piece.type == 'Pawn' and (game.piece.col_position - y) == 2
+			return game.legal_move? #(=true? or that line true by default)
+		else
+
+
+
 end
