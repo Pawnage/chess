@@ -31,7 +31,7 @@ class Piece < ActiveRecord::Base
   def capture!(x, y)
     opponent_piece = Piece.where(:game_id => game.id, :row_position => x, :col_position => y)
     if capturable?(x, y)
-      opponent_piece.update_attributes(:row_position => nil, :col_position => nil, :alive => false)
+      opponent_piece[0].update_attributes(:row_position => nil, :col_position => nil, :alive => false)
     end
   end
 
