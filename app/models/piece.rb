@@ -28,6 +28,13 @@ class Piece < ActiveRecord::Base
     !Piece.where(game_id: game.id, row_position: x, col_position: y).where.not(color: color).empty?
   end
 
+  def capture!(x, y)
+    opponent_piece = Piece.where(:game_id => game.id, :row_position => x, :col_position => y)
+    if capturable?(x, y)
+      opponent_piece.update_attributes(:row_position => nil, :col_position => nil, :alive => false)
+    end
+  end
+
   def set_default_for_alive
     self.alive = true if self.alive.nil?
   end
