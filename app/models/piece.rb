@@ -24,7 +24,7 @@ class Piece < ActiveRecord::Base
 	def legal_move?
 	end
 
-  def capture?(x, y)
+  def capturable?(x, y)
     !Piece.where(game_id: game.id, row_position: x, col_position: y).where.not(color: color).empty?
   end
 
