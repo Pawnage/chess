@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :piece do
+  factory :king do
   	row_position 4
   	col_position 0
   	color "White"
