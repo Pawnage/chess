@@ -11,31 +11,30 @@ class Pawn < Piece
 		
 		# initial move: 1 sq
 		#white pawn condition
-		if piece.type == 'Pawn' and piece.color == 'White'
-			if (piece.col_position - y) == 1 and (piece.row_position - x) == 0 
+		if self.type == 'Pawn' and self.color == 'White'
+			if (self.row_position - x).abs == 1 and (self.col_position - y) == 0 
 				return true
 			end
 		# black pawn condition, varies from white due to different positions on board...	
-		elsif piece.type == 'Pawn' and piece.color == 'Black'
-			if (piece.col_position - y) == -1 and (piece.row_position - x) == 0 
+		elsif self.type == 'Pawn' and self.color == 'Black'
+			if (self.row_position - x) == 1 and (self.col_position - y) == 0 
 				return true
 			end	
 			# add conditions (and/or new methods) for promotion, en passant
 		
 		# initial move: 2sq
 		# white pawn condition 
-		elsif pieces.type == 'Pawn' and piece.color == 'White'
-			if (piece.col_position - y) == 2 and (piece.row_position - x) == 0 
+		elsif self.type == 'Pawn' and self.color == 'White'
+			if (self.row_position - x).abs == 2 and (self.col_position - y) == 0 
 				return true
 			end 
 		#black pawn condition
-		elsif pieces.type == 'Pawn' and piece.color == 'Black'
-			if (piece.col_position - y) == -2
+		elsif self.type == 'Pawn' and self.color == 'Black'
+			if (self.row_position - x) == 2 and (self.col_position - y) == 0
 				return true 
 			end
 		else
 			return false
 		end
-		
 	end
 end
