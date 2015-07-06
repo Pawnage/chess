@@ -25,7 +25,7 @@ class Piece < ActiveRecord::Base
 	end
 
   def capturable?(x, y)
-    !Piece.where(:game_id => game.id, :row_position => x, :col_position => y, :alive => true).where.not(color: color).empty?
+    Piece.where(:game_id => game.id, :row_position => x, :col_position => y, :alive => true).where.not(color: color).present?
   end
 
   def capture!(x, y)
