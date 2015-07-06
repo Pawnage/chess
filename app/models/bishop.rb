@@ -10,6 +10,8 @@ class Bishop < Piece
 		#bishop can only move diagonally so easiest condition is to exclude any purely horiz. or vertical moves 
 		if (piece.row_position - x).abs != 0 or (piece.col_position - y).abs != 0
 			return true		
+		else
+			return false
 		end	
 		
 	end

@@ -17,7 +17,7 @@ class Knight < Piece
 	
 	def knight_legal_move?(x, y)
 		#knight moves two squares in horiz. or vertical then one space in the other of the two directions 
-		if ((piece.row_position - x).abs == 2 and (piece.col_position - y).abs == 1)) or ((piece.col_position - y).abs == 2 and (piece.row_position - x).abs == 1))
+		if ((piece.row_position - x).abs == 2 and (piece.col_position - y).abs == 1) or ((piece.col_position - y).abs == 2 and (piece.row_position - x).abs == 1)
 			return true		
 		else
 			return false
