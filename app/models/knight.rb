@@ -1,16 +1,4 @@
 class Knight < Piece
-  def legal_moves
-    moves_array = []
-
-    for x in 0..7
-      for y in 0..7
-        moves_array << [x, y]
-      end
-    end
-
-    return moves_array
-  end
-	
   def legal_move?(x, y)
     # knight moves two squares in horiz. or vertical then one space in the other of the two directions 
     if ((self.row_position - x).abs == 2 and (self.col_position - y).abs == 1) or ((self.col_position - y).abs == 2 and (self.row_position - x).abs == 1)
