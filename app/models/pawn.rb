@@ -13,17 +13,18 @@ class Pawn < Piece
     if self.type == 'Pawn' and self.color == 'White'
       if (self.row_position - x) == 1 and (self.col_position - y) == 0 
         return true
+      end
     # black pawn condition
     elsif self.type == 'Pawn' and self.color == 'Black'  
       if (self.row_position - x) == 1 and (self.col_position - y) == 0 
         return true
-
+      end
       # initial move: 2 sq
       # white pawn condition 
     elsif self.type == 'Pawn' and self.color == 'White'  
-        elsif (self.row_position - x) == 2 and (self.col_position - y) == 0 
-          return true
-        end
+      if (self.row_position - x) == 2 and (self.col_position - y) == 0 
+        return true
+      end
     # black pawn condition, varies from white due to different positions on board...	
     elsif self.type == 'Pawn' and self.color == 'Black'  
       if (self.row_position - x) == 2 and (self.col_position - y) == 0
