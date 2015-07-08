@@ -15,13 +15,12 @@ class Piece < ActiveRecord::Base
       end
   end
 
-	self.inheritance_column = :type
-
   def self.types
     %w(Pawn Rook Knight Bishop Queen King)
   end
 
 	def legal_move?
+    raise NotImplementedError
 	end
 
   def capture?(x, y)
