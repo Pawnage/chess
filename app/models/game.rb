@@ -4,15 +4,6 @@ class Game < ActiveRecord::Base
 
 	after_create :populate_board!
 
-	#check whether or not a piece exits in a given space
-	  def piece_exists?(x, y)
-	    if Piece.where(game_id: game.id, row_position: x, col_position: y)
-	      return true
-	    else
-	      return false
-	    end
-	  end
-
 	
 	def populate_board!		
 		#populate front rows wth pawns
@@ -67,4 +58,8 @@ class Game < ActiveRecord::Base
 	end
 
 
+	#check whether or not a piece exits in a given space
+	  def piece_exists?(x, y)
+	    Piece.where(game_id: self.id, row_position: x, col_position: y).exists?
+	  end
 end
