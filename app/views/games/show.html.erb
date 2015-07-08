@@ -9,25 +9,21 @@
         <% 0.upto(7) do |col| %>
           <td>
             <% if piece = @pieces.detect { |piece| piece.row_position == row && piece.col_position == col && piece.alive } %>              
-              <% if @selected_piece.nil? %>
-                <%= link_to piece_path(piece) do %>
+
+              <div class="piece" id="piece-<%= piece.id %>">
+                <%= link_to game_path(@game, piece_id: piece), remote: true do %>
                   <%= render_piece(piece) %>
                 <% end %>
-              <% else %>
-                <!-- if a piece is selected, every cell (even occupied ones) is a link to update the positions of the selected piece -->
-                <%= link_to piece_path(@selected_piece, :row_position => row, :col_position => col), :method => :patch do %>
-                  <% if piece == @selected_piece %>
-                    <!-- highlight the piece that is selected -->
-                    <%= render_piece(piece, true) %>
-                  <% else %>
-                    <%= render_piece(piece) %>
-                  <% end %>
-                <% end %>
-              <% end %>
-            <% elsif @selected_piece %>              
-              <%= link_to piece_path(@selected_piece, :row_position => row, :col_position => col), :class => 'movable', :method => :patch do %>
-                <div class="movable"></div>
-              <% end %>
+              </div>
+
+            <% else %>
+
+              <div class="open-spaces" id="<%= row %>,<%= col %>" data-row="<%= row %>" data-col="<%= col %>">
+
+                <%= @row = row %>
+                <%= @col = col %>
+                
+              </div>
             <% end %>
           </td>
         <% end %>
@@ -35,5 +31,71 @@
     <% end %>
   </table>
 
+
   <br /><br />
 </div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div id="selected-piece">
+  Selected Piece:
+  
+</div>
+
+<br />
+<br />
+<br />
+
+
+<script>
+
+
+//on clicking a piece
+$(".piece").click(function (event) {
+
+  var piece = event.target;
+  var pieceId = $(piece).attr("data-piece");
+
+//set class of piece to selected
+  $(".piece").removeClass("selected");
+  $(piece).addClass("selected");
+  
+
+});
+
+
+</script>

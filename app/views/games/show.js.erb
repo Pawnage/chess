@@ -1,0 +1,27 @@
+$("#selected-piece").html("<%= @selected_piece.id if @selected_piece %>");
+
+
+$(".open-spaces").click(function (event) {
+
+	//save row and col of open space
+	var openSpace = event.target;
+	var openSpaceRow = $(openSpace).attr("data-row");
+	var openSpaceCol = $(openSpace).attr("data-col");
+
+	
+
+	//make AJAX call to update method to move the piece
+
+	$.ajax({
+		url: "<%= escape_javascript(game_path(@game)) %>",
+		method: "PUT",
+		dataType: 'json',
+		data: { piece: { 
+			row_position: openSpaceRow,
+			col_position: openSpaceCol,
+			selected_piece_id: "<%= escape_javascript(@selected_piece.id.to_s) %>"
+		}}
+	});
+
+
+});
