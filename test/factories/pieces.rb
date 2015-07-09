@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :piece do
-  	alive true
-  	association :player
+    alive true
+    association :player
     association :game
   end
 

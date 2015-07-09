@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class PieceTest < ActiveSupport::TestCase
+
   test "#capturable? returns false if specified coordinates not occupied by any piece" do
     white_pawn = FactoryGirl.create(:pawn, :row_position => 1, :col_position => 1)
     refute white_pawn.capturable?(2, 1)
@@ -31,4 +32,5 @@ class PieceTest < ActiveSupport::TestCase
     assert_nil black_pawn.col_position
     refute black_pawn.alive
   end
+
 end
