@@ -2,21 +2,23 @@
 
 <h2>All games currently in progress</h2>
 
-	<% Game.all do |game| %>
 		<h3 class="text-center">
-		<%= link_to "View all games", games_path(game) %></h3>
+		<%= link_to "View all games", games_path %></h3>
 		<br />
 	 	<hr />
-	<% end %>
+	
 
-<%-# commenting block out until fixed 7-3-15 #-%>	
+	<h2>Games I am currently playing...</h2>
+	<% @games.each do |game| %>
 
 		<%-# games player is participating in #-%>
-		<h2>Games I am currently playing...</h2>
-		<%= link_to "View my current game", game_path(game) %> 
+		
+		<%= link_to "View my current game", game_path(game) %>
+		<br /> 
+	<% end %>
 
 		<hr />
 		<%-# Creating a new game #-%>
 		<h2>Start a New Game</h2>
 		<%= link_to "New Game", new_game_path %>
-	<% end %>
+	

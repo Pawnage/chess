@@ -20,6 +20,7 @@ class Piece < ActiveRecord::Base
   end
 
 	def legal_move?
+    raise NotImplementedError
 	end
 
   def capture?(x, y)

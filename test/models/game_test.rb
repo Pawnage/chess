@@ -13,5 +13,5 @@ class GameTest < ActiveSupport::TestCase
   	actual = game.obstruction(0, 0).type
   	assert_equal expected, actual
   end
-
+  
 end
