@@ -23,8 +23,15 @@ class Piece < ActiveRecord::Base
     raise NotImplementedError
 	end
 
-  def capture?(x, y)
-    !Piece.where(game_id: game.id, row_position: x, col_position: y).where.not(color: color).empty?
+  def capturable?(x, y)
+    Piece.where(:game_id => game.id, :row_position => x, :col_position => y, :alive => true).where.not(color: color).present?
+  end
+
+  def capture!(x, y)
+    opponent_piece = Piece.where(:game_id => game.id, :row_position => x, :col_position => y)
+    if capturable?(x, y)
+      opponent_piece[0].update_attributes(:row_position => nil, :col_position => nil, :alive => false)
+    end
   end
 
   def set_default_for_alive
