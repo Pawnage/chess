@@ -1,8 +1,19 @@
 require 'test_helper'
 
 class BishopTest< ActiveSupport::TestCase
-  test "white bishop_legal_move" do
-    bishop = FactoryGirl.create(:bishop, :type => 'Bishop', :row_position => 2, :col_position => 0)
-    assert_equal true, bishop.legal_move?(1, 1)
+  test "legal_move diag returns true" do
+    bishop = FactoryGirl.create(:bishop, :row_position => 4, :col_position => 2)
+    assert true, bishop.legal_move?(5, 3)
+    assert true, bishop.legal_move?(3, 3)
+    assert true, bishop.legal_move?(5, 1)
+    assert true, bishop.legal_move?(3, 1)
+  end
+
+  test "legal_move off board returns false" do
+    bishop = FactoryGirl.create(:bishop, :row_position => 2, :col_position => 0)
+    refute bishop.legal_move?(3, -1)
+    refute bishop.legal_move?(1, -1)
+    refute bishop.legal_move?(8, 6)
+    refute bishop.legal_move?(-1, 3)
   end
 end
