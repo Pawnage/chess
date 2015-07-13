@@ -9,8 +9,8 @@ class Queen < Piece
 	    Piece.where(row_position: x, col_position: y).exists?
 	end
 
-	def is_obstructed?
-		return true if self.piece_exists? and Piece.color != self.piece.color
+	def is_obstructed?(x, y)
+		return true if self.piece_exists? (x, y) and Piece.color != self.piece.color
 		else
 			return false
 	end
