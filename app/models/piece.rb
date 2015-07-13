@@ -23,6 +23,12 @@ class Piece < ActiveRecord::Base
     raise NotImplementedError
 	end
 
+  def valid_move?(x, y)
+    return false unless self.legal_move?(x, y)
+    return false if self.obstructed_move?(x, y)
+    return true
+  end
+
   def capturable?(x, y)
     Piece.where(:game_id => game.id, :row_position => x, :col_position => y, :alive => true).where.not(color: color).present?
   end
