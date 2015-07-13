@@ -37,7 +37,6 @@ class Pawn < Piece
       
         # add conditions (and/or new methods) for promotion, en passant			
         
-
         else
           return false
         end
