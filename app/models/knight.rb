@@ -1,4 +1,5 @@
 class Knight < Piece
+  
   def legal_move?(x, y)
     # knight moves two squares in horiz. or vertical then one space in the other of the two directions 
     if x >= 0 and x <= 7 and y >= 0 and y <= 7

@@ -14,7 +14,7 @@ class PiecesController < ApplicationController
     row = params[:row_position]
     col = params[:col_position]
     @piece.update_attributes(:row_position => row, :col_position => col)
-      if piece.update_attributes(:row_position => row, :col_position => col).legal_move?
+      if @piece.update_attributes(:row_position => row, :col_position => col).legal_move?
         redirect_to game_path(@piece.game)
       end
   end
