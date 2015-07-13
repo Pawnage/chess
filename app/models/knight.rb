@@ -25,4 +25,15 @@ class Knight < Piece
 
     return true
   end
+
+  def piece_exists?(x, y)
+      Piece.where(row_position: x, col_position: y).exists?
+  end
+
+  def is_obstructed?
+    return true if piece_exists? and piece.color != self.piece.color
+    else
+      return false
+  end
+  
 end
