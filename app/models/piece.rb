@@ -26,7 +26,7 @@ class Piece < ActiveRecord::Base
   def valid_move?(x, y)
     return false unless self.legal_move?(x, y)
     return false if self.obstructed_move?(x, y)
-    return true
+    true
   end
 
   def capturable?(x, y)
