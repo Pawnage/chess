@@ -2,6 +2,12 @@ require 'test_helper'
 
 class PieceTest < ActiveSupport::TestCase
 
+  test "#nil_move? method" do
+    pawn = FactoryGirl.create(:pawn, :row_position => 1, :col_position => 1)
+    assert pawn.nil_move?(1, 1)
+    refute pawn.nil_move?(2, 1)
+  end
+
   test "#capturable? returns false if specified coordinates not occupied by any piece" do
     white_pawn = FactoryGirl.create(:pawn, :row_position => 1, :col_position => 1)
     refute white_pawn.capturable?(2, 1)
