@@ -13,7 +13,6 @@ class King < Piece
     return true if  (self.row_position - x) == 0 and (self.col_position - y) == -1
       # move one step diagonally
     return true if  (self.row_position - x).abs == 1 and (self.col_position - y).abs == 1
-    return true if  (self.row_position - x) == -1 and (self.col_position - y) == -1  
   end
 
 end
