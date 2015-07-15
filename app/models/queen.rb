@@ -1,4 +1,4 @@
-# class Queen < Piece
+class Queen < Piece
 # 	def legal_move?
 # 	end
 
@@ -9,4 +9,4 @@
 # 	def legal_move?
 		
 # 	end
-# end
+end

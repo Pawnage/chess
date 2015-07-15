@@ -1,4 +1,4 @@
-# class Knight < Piece
+class Knight < Piece
 #   def legal_move?(x, y)
 #     # knight moves two squares in horiz. or vertical then one space in the other of the two directions 
 #     if ((self.row_position - x).abs == 2 and (self.col_position - y).abs == 1) or ((self.col_position - y).abs == 2 and (self.row_position - x).abs == 1)
@@ -26,4 +26,4 @@
 
 #     return true
 #   end
-# end
+end

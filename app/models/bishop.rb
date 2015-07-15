@@ -1,4 +1,4 @@
-# class Bishop < Piece
+class Bishop < Piece
 #   def legal_move?
 #   end
 
@@ -14,4 +14,4 @@
 #       return false
 #     end			
 #   end
-# end
+end

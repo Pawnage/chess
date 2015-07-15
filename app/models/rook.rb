@@ -1,4 +1,4 @@
-# class Rook < Piece
+class Rook < Piece
 
 #   def legal_move?
 #   end
@@ -17,4 +17,4 @@
 # 		end
 # 	end
   
-# end
+end

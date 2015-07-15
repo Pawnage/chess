@@ -1,4 +1,4 @@
-# class Pawn < Piece
+class Pawn < Piece
   
 #   def obstructed_positions(x, y)
 #     puts "I'm a pawn"
@@ -32,4 +32,4 @@
 #     return false
 #   end
   
-# end
+end
