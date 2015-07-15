@@ -5,10 +5,10 @@ class King < Piece
   end
 
   def legal_move?(x, y)
-      # move one step vertically
+      # move one step horizontally
       (self.row_position - x) == 1 and (self.col_position - y) == 0
       (self.row_position - x) == -1 and (self.col_position - y) == 0
-      # move one step horizontally
+      # move one step vertically
       (self.row_position - x) == 0 and (self.col_position - y) == 1
       (self.row_position - x) == 0 and (self.col_position - y) == -1
       # move one step diagonally
