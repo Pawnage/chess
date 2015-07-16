@@ -28,6 +28,7 @@ class Piece < ActiveRecord::Base
   end
 
   def legal_vert_move?(x, y)
+    x >= 0 and x <= 7 and y >= 0 and y <= 7
     (self.row_position - x) == 0
   end  
 
