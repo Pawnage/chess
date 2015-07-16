@@ -17,7 +17,7 @@ class KingTest < ActiveSupport::TestCase
   test "king legal_move? 1 square diagonal downward left or upward right returns true" do
     king = FactoryGirl.create(:king, :row_position => 4, :col_position => 5)
     assert king.legal_move?(3, 6)
-    assert king.legal_move?(5, 5)
+    assert king.legal_move?(5, 4)
   end
 
   test "king legal_move? 1 square upward or downward returns true" do
