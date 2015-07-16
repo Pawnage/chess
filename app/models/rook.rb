@@ -9,12 +9,8 @@ class Rook < Piece
 
   	def legal_move?(x, y)
 		#rook's move is purely horizontal or vertical
-		if (self.row_position - x) == 0 or (self.col_position - y) == 0 
+		self.horiz_move? || self.vert_move?
 		 		#add conditions for kingside and queenside castling (i.e. rook moves horizontally (or vertically?) around king or queen)
-			return true
-		else
-			return false
-		end
 	end
   
 end
