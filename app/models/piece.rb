@@ -33,15 +33,15 @@ class Piece < ActiveRecord::Base
       self.valid_move? 
   end
 
-  def horiz_move?(x, y)
+  def legal_horiz_move?(x, y)
     (self.col_position - y) == 0
   end
 
-  def vert_move?(x, y)
+  def legal_vert_move?(x, y)
     (self.row_position - x) == 0
   end  
 
-  def diag_move(x, y)
+  def legal_diag_move(x, y)
     (self.row_position - x) == (self.col_position - y)
   end
 
