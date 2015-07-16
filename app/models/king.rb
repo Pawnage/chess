@@ -5,7 +5,7 @@ class King < Piece
   end
 
   def legal_move?(x, y)
-    self.horiz_move? || self.vert_move? || self.diag_move?
+    self.legal_horiz_move? || self.legal_vert_move? || self.legal_diag_move?
   end
 
 end
