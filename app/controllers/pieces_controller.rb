@@ -15,9 +15,10 @@ class PiecesController < ApplicationController
     col = params[:col_position]
     @piece.capture!(row, col) if @piece.capturable?(row, col)
     @piece.update_attributes(:row_position => row, :col_position => col)
-      if piece.update_attributes(:row_position => row, :col_position => col).legal_move?
-        redirect_to game_path(@piece.game)
-      end
+     #to be moved once obstructed, legal and valid are combined as checks into one method 
+      # if @piece.update_attributes(:row_position => row, :col_position => col).legal_move?
+      #   redirect_to game_path(@piece.game)
+      # end
   end
 
   private
