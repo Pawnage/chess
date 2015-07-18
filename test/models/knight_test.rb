@@ -1,4 +1,4 @@
-require 'test_helper'
+#require 'test_helper'
 
 class KnightTest < ActiveSupport::TestCase 
  test "knight_legal_move left-right then up-down return true" do
