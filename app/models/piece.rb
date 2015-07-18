@@ -22,18 +22,6 @@ class Piece < ActiveRecord::Base
 	def legal_move?
     raise NotImplementedError
 	end
-  
-  def legal_horiz_move?(x, y)
-    (self.col_position - y) == 0
-  end
-
-  def legal_vert_move?(x, y)
-    (self.row_position - x) == 0
-  end  
-
-  def legal_diag_move?(x, y)
-    (self.row_position - x).abs == (self.col_position - y).abs
-  end
 
   def legal_horiz_move?(x, y)
     (self.col_position - y) == 0
@@ -49,6 +37,13 @@ class Piece < ActiveRecord::Base
 
   def nil_move?(x, y)
     row_position == x && col_position == y
+  end
+
+  def valid_move?(x, y)
+    return false unless self.legal_move?(x, y)
+    return false if self.nil_move?(x, y)
+    return false if self.obstructed_move?(x, y)
+    true
   end
 
   def capturable?(x, y)
