@@ -6,8 +6,8 @@ class Rook < Piece
     # check if a piece is blocking the path in the first vertical direction
     # if y is the same column as current column and x is larger than the current_row
     if current_col == y && x > current_row
-      # for each row from current_row + 1 to x in current_column check if a piece exists
-      for i in current_row + 1..x do
+      # for each row from current_row + 1 to (x - 1) in current_column check if a piece exists
+      for i in (current_row + 1..x-1) do
         # if it does return true
         if self.game.piece_exists?(i, y)
           return true
@@ -18,8 +18,8 @@ class Rook < Piece
     # check if a piece is blocking the path in the second vertical direction
     if current_col == y && x < current_row
       # puts "second vertical"
-      # for each row from current_row + 1 to x in current_column check if a piece exists
-      for i in x..current_row - 1 do
+      # for each row from (x + 1) to current_row - 1 in current_column check if a piece exists
+      for i in (x+1..current_row - 1) do
         # if it does return true
         if self.game.piece_exists?(i, y)
           return true
@@ -31,8 +31,8 @@ class Rook < Piece
     # if x is the same row and current_row and y is larger than current_column
     if current_row == x && y > current_col
       # puts "first horizontal"
-      # for each row from current_row + 1 to x in current_column check if a piece exists
-      for i in current_col + 1..y do
+      # for each column from current_col + 1 to (y - 1) in current_row check if a piece exists
+      for i in (current_col + 1..y-1) do
         # if it does return true
         if self.game.piece_exists?(x, i)
           return true
@@ -43,8 +43,8 @@ class Rook < Piece
     # check if a piece is blocking the path in the second horizontal direction
     if current_row == x && y < current_col
       # puts "second horizontal"
-      # for each row from current_row + 1 to x in current_column check if a piece exists
-      for i in y..current_col - 1 do
+      # for each column from (y + 1) to current_col - 1 in current_row check if a piece exists
+      for i in (y+1..current_col - 1) do
         # if it does return true
         if self.game.piece_exists?(x, i)
           return true
