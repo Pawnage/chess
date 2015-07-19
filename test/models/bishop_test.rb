@@ -1,4 +1,5 @@
-require 'test_helper'
+#require 'test_helper'
+
 
 class BishopTest< ActiveSupport::TestCase
   test "legal_move diag (in two directions) returns true" do
@@ -31,3 +32,4 @@ class BishopTest< ActiveSupport::TestCase
     refute bishop.legal_move?(-1, 3)
   end
 end
+

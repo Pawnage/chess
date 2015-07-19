@@ -1,4 +1,5 @@
 class Bishop < Piece
+
   
   def obstructed_positions(x, y)
     puts "I'm a bishop"
