@@ -14,16 +14,10 @@ class Queen < Piece
 		else
 			return false
 	end
-#only illegal move for queen is to jump over pieces
+
 	def legal_move?(x, y)
-		#allows queen to move to obstructed square anyway and (ultimately) capture piece if it's of a different color
-		self.attempt_move?(x, y)
-		# elsif Piece.where(row_position: x, col_position: y).exists?
-		# 	return false if 
+		#queen can move any amount of vacant squares in any direction
+		self.legal_horiz_move?(x, y) || self.legal_vert_move?(x, y) || self.legal_diag_move?(x, y)
 	end
 
-
-			
-		
-	end
 end
