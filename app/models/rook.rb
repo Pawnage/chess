@@ -7,7 +7,7 @@ class Rook < Piece
     # if y is the same column as current column and x is larger than the current_row
     if current_col == y && x > current_row
       # for each row from current_row + 1 to (x - 1) in current_column check if a piece exists
-      for i in (current_row + 1..x-1) do
+      for i in (current_row+1...x) do
         # if it does return true
         if self.game.piece_exists?(i, y)
           return true
@@ -19,7 +19,7 @@ class Rook < Piece
     if current_col == y && x < current_row
       # puts "second vertical"
       # for each row from (x + 1) to current_row - 1 in current_column check if a piece exists
-      for i in (x+1..current_row - 1) do
+      for i in (x+1...current_row) do
         # if it does return true
         if self.game.piece_exists?(i, y)
           return true
@@ -32,7 +32,7 @@ class Rook < Piece
     if current_row == x && y > current_col
       # puts "first horizontal"
       # for each column from current_col + 1 to (y - 1) in current_row check if a piece exists
-      for i in (current_col + 1..y-1) do
+      for i in (current_col+1...y) do
         # if it does return true
         if self.game.piece_exists?(x, i)
           return true
@@ -44,7 +44,7 @@ class Rook < Piece
     if current_row == x && y < current_col
       # puts "second horizontal"
       # for each column from (y + 1) to current_col - 1 in current_row check if a piece exists
-      for i in (y+1..current_col - 1) do
+      for i in (y+1...current_col) do
         # if it does return true
         if self.game.piece_exists?(x, i)
           return true
