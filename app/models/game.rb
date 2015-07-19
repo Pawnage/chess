@@ -66,7 +66,7 @@ class Game < ActiveRecord::Base
     return false
   end
 
-  def player_turn_change
+  def player_turn_change!
     if self.player_turn == self.player_white_id
       self.update_attributes(:player_turn => self.player_black_id)
     else

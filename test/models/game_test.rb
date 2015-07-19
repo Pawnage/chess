@@ -14,11 +14,11 @@ class GameTest < ActiveSupport::TestCase
     assert_equal expected, actual
   end
 
-  test "#player_turn_change" do
+  test "#player_turn_change!" do
     game = FactoryGirl.create(:game, :player_white_id => 1, :player_black_id => 2, :player_turn => 1)
-    game.player_turn_change
+    game.player_turn_change!
     assert_equal 2, game.player_turn
-    game.player_turn_change
+    game.player_turn_change!
     assert_equal 1, game.player_turn
   end
   
