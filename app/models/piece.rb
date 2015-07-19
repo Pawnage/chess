@@ -22,7 +22,7 @@ class Piece < ActiveRecord::Base
 	def legal_move?
     raise NotImplementedError
 	end
-
+  
   def legal_horiz_move?(x, y)
     (self.col_position - y) == 0
   end
@@ -32,7 +32,11 @@ class Piece < ActiveRecord::Base
   end  
 
   def legal_diag_move?(x, y)
-    (self.row_position - x) == (self.col_position - y)
+    (self.row_position - x).abs == (self.col_position - y).abs
+  end
+
+  def nil_move?(x, y)
+    row_position == x && col_position == y
   end
 
   def capturable?(x, y)
