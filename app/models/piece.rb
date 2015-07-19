@@ -29,31 +29,24 @@ class Piece < ActiveRecord::Base
 
   def attempt_move?(x, y)
     (x >= 0 and x <= 7) and (y >= 0 and y <= 7)
-       #add nil move call?
+      self.nil_move?(x, y)
       self.legal_move?(x, y)
       self.obstructed_move?(x, y)
   end
 
-  def x_diff(x)
-    xdif = self.row_position - x
-    xdif
+  def legal_horiz_move?(x, y)
+    x >= 0 and x <= 7 and y >= 0 and y <= 7 
+    self.col_position - y == 0
   end
 
-  def y_diff(y)
-    ydif = self.col_position - y
-    ydif
-  end
-
-  def legal_horiz_move?(xdiff, ydiff)
-    ydiff == 0
-  end
-
-  def legal_vert_move?(xdiff, ydiff)
-    xdiff == 0
+  def legal_vert_move?(x, y)
+    x >= 0 and x <= 7 and y >= 0 and y <= 7
+    self.row_position - x == 0
   end  
 
-  def legal_diag_move(xdiff, ydiff)
-    xdiff.abs == ydiff.abs
+  def legal_diag_move(x, y)
+    x >= 0 and x <= 7 and y >= 0 and y <= 7 
+    (self.row_position - x).abs == (self.col_position - y).abs
   end
 
   def capturable?(x, y)
