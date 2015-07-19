@@ -1,6 +1,6 @@
-# require 'test_helper'
+require 'test_helper'
 
-# class RookTest < ActiveSupport::TestCase
+class RookTest < ActiveSupport::TestCase
 
 
   test "rook legal_move off board returns false" do

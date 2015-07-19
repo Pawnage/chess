@@ -24,14 +24,15 @@ class Piece < ActiveRecord::Base
 	end
   
   def legal_horiz_move?(x, y)
-    (self.col_position - y) == 0
+    x >= 0 and x <= 7 and y >= 0 and y <= 7 and (self.col_position - y) == 0
   end
 
   def legal_vert_move?(x, y)
-    (self.row_position - x) == 0
+    x >= 0 and x <= 7 and y >= 0 and y <= 7 and (self.row_position - x) == 0
   end  
 
   def legal_diag_move?(x, y)
+    #x >= 0 and x <= 7 and y >= 0 and y <= 7
     (self.row_position - x).abs == (self.col_position - y).abs
   end
 
