@@ -23,8 +23,6 @@ class Bishop < Piece
         for j in (current_col+1...y) do
           if self.game.piece_exists?(i, j)
             return true
-          else
-            next
           end
         end
       end
@@ -36,8 +34,6 @@ class Bishop < Piece
         for j in (current_col+1...y) do
           if self.game.piece_exists?(i, j)
             return true
-          else
-            next
           end
         end
       end
@@ -49,8 +45,6 @@ class Bishop < Piece
         for j in (y+1...current_col) do
           if self.game.piece_exists?(i, j)
             return true
-          else
-            next
           end
         end
       end
@@ -62,8 +56,6 @@ class Bishop < Piece
         for j in (y+1...current_col) do
           if self.game.piece_exists?(i, j)
             return true
-          else
-            next
           end
         end
       end
