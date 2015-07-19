@@ -30,6 +30,10 @@ class Piece < ActiveRecord::Base
     self.obstructed_move?(x, y)
   end
 
+  def nil_move?(x, y)
+    row_position == x && col_position == y
+  end
+  
   def capturable?(x, y)
     Piece.where(:game_id => game.id, :row_position => x, :col_position => y, :alive => true).where.not(color: color).present?
   end
