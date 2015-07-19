@@ -25,7 +25,9 @@ class Piece < ActiveRecord::Base
 
   def attempt_move?(x, y)
     (x >= 0 and x <= 7) and (y >= 0 and y <= 7)
-    self.valid_move? 
+    self.nil_move?(x, y) 
+    self.legal_move?(x, y)
+    self.obstructed_move?(x, y)
   end
 
   def capturable?(x, y)
