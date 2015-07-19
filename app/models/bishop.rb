@@ -7,11 +7,7 @@ class Bishop < Piece
 
   def legal_move?(x, y)
   # bishop can only move diagonally so easiest condition is to exclude any purely horiz. or vertical moves 
-    if (x >= 0 and x <= 7) and (y >= 0 and y <= 7)
       self.legal_diag_move?(x, y)      
-    else
-      return false
-    end
   end
 
   def piece_exists?(x, y)
@@ -19,9 +15,7 @@ class Bishop < Piece
   end
 
   def is_obstructed?
-    return true if piece_exists? and piece.color != self.piece.color
-    else
-      return false
+  
   end
 
 end
