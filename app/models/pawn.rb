@@ -31,5 +31,19 @@ class Pawn < Piece
 
     return false
   end
+
+  def obstructed_move?(x, y)
+    # check to see if a piece exists in between white pawn's initial position and destination when attempting to move two spaces forward
+    if self.color == 'White' && self.row_position == 1
+      self.game.piece_exists?(x-1, y)
+    end
+
+    # check to see if a piece exists in between black pawn's initial position and destination when attempting to move two spaces forward
+    if self.color == 'Black' && self.row_position == 6
+      self.game.piece_exists?(x+1, y)
+    end
+
+    return false
+  end
   
 end
