@@ -1,15 +1,11 @@
 class Queen < Piece
 
-
  	def obstructed_positions(x, y)
  		puts "I'm a queen"
  	end
 
 	def piece_exists?(x, y)
 	    Piece.where(row_position: x, col_position: y).exists?
-	end
-
-	def is_obstructed?(x, y)
 	end
 
 	def legal_move?(x, y)

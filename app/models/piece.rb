@@ -31,7 +31,8 @@ class Piece < ActiveRecord::Base
     (x >= 0 and x <= 7) and (y >= 0 and y <= 7)
     self.nil_move?(x, y)
     self.legal_move?(x, y)
-    if self.nil_move?(x, y) == false or self.legal_move?(x, y) == false
+    self.obstructed_move?(x, y)
+    if self.nil_move?(x, y) == true or self.legal_move?(x, y) == false or (self.obstructed_move?(x, y) == true and self.type == "Queen")
       return false
     end
   end
@@ -41,14 +42,17 @@ class Piece < ActiveRecord::Base
   end
 
   def legal_horiz_move?(x, y)
+    (x >= 0 and x <= 7) and (y >= 0 and y <= 7)
     (self.col_position - y) == 0
   end
 
   def legal_vert_move?(x, y)
+    (x >= 0 and x <= 7) and (y >= 0 and y <= 7)
     (self.row_position - x) == 0
   end  
 
   def legal_diag_move?(x, y)
+    (x >= 0 and x <= 7) and (y >= 0 and y <= 7)
     (self.row_position - x).abs == (self.col_position - y).abs
   end
 
