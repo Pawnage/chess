@@ -33,5 +33,26 @@ class PieceTest < ActiveSupport::TestCase
     refute black_pawn.alive
   end
 
+  test "#attempt_move returns true(nil_move), false(legal_move), false(obstructed_move)" do
+    pawn = FactoryGirl.create(:pawn, :row_position => 1, :col_position => 1)
+    assert pawn.attempt_move?(1, 1)
+  end
+
+  test "#attempt_move returns false(nil_move), true(legal_move), false(obstructed_move)" do
+    pawn = FactoryGirl.create(:pawn, :row_position => 1, :col_position => 1)
+    assert pawn.attempt_move?(1, 1)
+  end
+
+  test "#attempt_move returns false(nil_move), true(legal_move), true(obstructed_move)" do
+    pawn = FactoryGirl.create(:pawn, :row_position => 1, :col_position => 1)
+    assert pawn.attempt_move?(1, 1)
+  end
+
+  test "#attempt_move returns false(nil_move), false(legal_move)" do
+    pawn = FactoryGirl.create(:pawn, :row_position => 1, :col_position => 1)
+    assert pawn.attempt_move?(1, 1)
+  end
+
+
 end
 
