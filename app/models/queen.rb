@@ -1,12 +1,20 @@
 class Queen < Piece
-	def legal_move?
+
+
+ 	def obstructed_positions(x, y)
+ 		puts "I'm a queen"
+ 	end
+
+	def piece_exists?(x, y)
+	    Piece.where(row_position: x, col_position: y).exists?
 	end
 
-	def obstructed_positions(x, y)
-		puts "I'm a queen"
+	def is_obstructed?(x, y)
 	end
 
-	def legal_move?
-		
+	def legal_move?(x, y)
+		#queen can move any amount of vacant squares in any direction
+		self.legal_horiz_move?(x, y) || self.legal_vert_move?(x, y) || self.legal_diag_move?(x, y)
 	end
+
 end

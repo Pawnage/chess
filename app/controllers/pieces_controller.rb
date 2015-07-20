@@ -17,6 +17,7 @@ class PiecesController < ApplicationController
     @piece.capture!(row, col) if @piece.capturable?(row, col)
     @piece.update_attributes(:row_position => row, :col_position => col)
       redirect_to game_path(@piece.game)
+
   end
 
   private
