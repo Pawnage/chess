@@ -13,8 +13,6 @@ class Pawn < Piece
       elsif self.row_position != 1
         return true if (x - self.row_position == 1) && (self.col_position - y == 0)
       end
-
-      return false if x - self.row_position > 7
     end
 
     if self.color == 'Black'
@@ -25,8 +23,6 @@ class Pawn < Piece
       elsif self.row_position != 6
         return true if (self.row_position - x == 1) && (self.col_position - y == 0)
       end
-
-      return false if self.row_position - x < 0
     end
 
     return false
