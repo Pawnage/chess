@@ -66,4 +66,9 @@ class Game < ActiveRecord::Base
     return false
   end
 
+  # check whether or not a piece exits in a given space
+  def piece_exists?(x, y)
+    Piece.where(game_id: self.id, row_position: x, col_position: y).exists?
+  end
+
 end
