@@ -42,6 +42,8 @@ class Pawn < Piece
         return self.game.piece_exists?(x+1, y)
       end
     end
+
+    return false
   end
   
 end
