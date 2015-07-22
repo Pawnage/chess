@@ -32,4 +32,17 @@ class PawnTest < ActiveSupport::TestCase
     assert black_pawn.legal_move?(4, 2)
   end
 
+  test "#obstructed_move? returns true if a piece exists in between the pawn and its destination when trying to move two spaces forward" do
+    game = FactoryGirl.create(:game)
+    pawn = FactoryGirl.create(:pawn, :game_id => game.id, :color => 'White', :row_position => 1, :col_position => 1)
+    blocking_piece = FactoryGirl.create(:bishop, :game_id => game.id, :color => 'White', :row_position => 2, :col_position => 1)
+    assert pawn.obstructed_move?(3, 1)
+  end
+
+  test "#obstructed_move? returns false if no piece exists in between the pawn and its destination when trying to move two spaces forward" do
+    game = FactoryGirl.create(:game)
+    pawn = FactoryGirl.create(:pawn, :game_id => game.id, :color => 'White', :row_position => 1, :col_position => 1)
+    refute pawn.obstructed_move?(3, 1)
+  end
+
 end

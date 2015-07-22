@@ -32,18 +32,16 @@ class Pawn < Piece
     # check to see if a piece exists in between white pawn's initial position and destination when attempting to move two spaces forward
     if self.color == 'White' && self.row_position == 1
       if (x - self.row_position == 2) && (self.col_position - y == 0)
-        self.game.piece_exists?(x-1, y)
+        return self.game.piece_exists?(x-1, y)
       end
     end
 
     # check to see if a piece exists in between black pawn's initial position and destination when attempting to move two spaces forward
     if self.color == 'Black' && self.row_position == 6
       if (self.row_position - x == 2) && (self.col_position - y == 0)
-        self.game.piece_exists?(x+1, y)
+        return self.game.piece_exists?(x+1, y)
       end
     end
-
-    return false
   end
   
 end
