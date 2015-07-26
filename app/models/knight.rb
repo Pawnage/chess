@@ -10,9 +10,9 @@ class Knight < Piece
     end 
   end
 
-#   def obstructed_positions(x, y)
-#     # has no obstructed positions
-#   end
+  def obstructed_move?(x, y)
+    return false
+  end
 
 #   def move(new_row_position, new_col_position)
 #     current_row_position = self.row_position
