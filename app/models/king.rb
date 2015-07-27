@@ -1,7 +1,7 @@
 class King < Piece
   
-  def obstructed_positions(x, y)
-    puts "I'm a king"
+  def obstructed_move?(x, y)
+    return false
   end
 
   def legal_move?(x, y)
