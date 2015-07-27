@@ -9,10 +9,6 @@ class Bishop < Piece
       self.legal_diag_move?(x, y)      
   end
 
-  def piece_exists?(x, y)
-      Piece.where(row_position: x, col_position: y).exists?
-  end
-
   def obstructed_move?(x, y)
     current_row = self.row_position
     current_col = self.col_position
