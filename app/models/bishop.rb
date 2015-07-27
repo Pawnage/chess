@@ -15,10 +15,10 @@ class Bishop < Piece
 
     # check to see if any piece exists when moving upward and rightward
     if current_row < x && current_col < y
-      col_counter = current_col
+      col_index = current_col
       for i in (current_row+1...x) do
-        col_counter += 1
-        if self.game.piece_exists?(i, col_counter)
+        col_index += 1
+        if self.game.piece_exists?(i, col_index)
           return true
         end
       end
@@ -26,10 +26,10 @@ class Bishop < Piece
 
     # check to see if any piece exists when moving downward and rightward
     if current_row > x && current_col < y
-      col_counter = y
+      col_index = y
       for i in (x+1...current_row) do
-        col_counter -= 1
-        if self.game.piece_exists?(i, col_counter)
+        col_index -= 1
+        if self.game.piece_exists?(i, col_index)
           return true
         end
       end
@@ -37,10 +37,10 @@ class Bishop < Piece
 
     # check to see if any piece exists when moving upward and leftward
     if current_row < x && current_col > y
-      col_counter = current_col
+      col_index = current_col
       for i in (current_row+1...x) do
-        col_counter -= 1
-        if self.game.piece_exists?(i, col_counter)
+        col_index -= 1
+        if self.game.piece_exists?(i, col_index)
           return true
         end
       end
@@ -48,10 +48,10 @@ class Bishop < Piece
 
     # check to see if any piece exists when moving downward and leftward
     if current_row > x && current_col > y
-      col_counter = y
+      col_index = y
       for i in (x+1...current_row) do
-        col_counter += 1
-        if self.game.piece_exists?(i, col_counter)
+        col_index += 1
+        if self.game.piece_exists?(i, col_index)
           return true
         end
       end
