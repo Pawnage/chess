@@ -66,4 +66,8 @@ class Game < ActiveRecord::Base
     return false
   end
 
+  def player_turn_check(player_id)
+    return self.player_turn == player_id
+  end
+
 end

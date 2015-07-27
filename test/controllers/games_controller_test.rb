@@ -40,7 +40,6 @@ class GamesControllerTest < ActionController::TestCase
         }
       }
     end
-    assert_equal 1, Game.all.count
     assert_redirected_to game_path(assigns(:game))
   end
 
