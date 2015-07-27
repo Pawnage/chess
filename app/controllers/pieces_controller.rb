@@ -13,7 +13,7 @@ class PiecesController < ApplicationController
     @piece = Piece.find(params[:id])
     row = params[:row_position]
     col = params[:col_position]
-    @piece.valid_move?(row, col)
+    @piece.move_to!(row, col)
     @piece.capture!(row, col) if @piece.capturable?(row, col)
     @piece.update_attributes(:row_position => row, :col_position => col)
       redirect_to game_path(@piece.game)

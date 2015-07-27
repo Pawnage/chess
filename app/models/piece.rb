@@ -23,11 +23,12 @@ class Piece < ActiveRecord::Base
     raise NotImplementedError
 	end
   
-  def valid_move?(x, y)
-    self.attempt_move(x, y)
+  def valid_move!(x, y)
+    
+    self.move_to!(x, y)
   end
-
-  def attempt_move(x, y)
+  #renaming to conform to cynrick's method
+  def move_to!(x, y)
     (x >= 0 and x <= 7) and (y >= 0 and y <= 7)
     self.nil_move?(x, y)
     self.legal_move?(x, y)
