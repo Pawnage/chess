@@ -69,7 +69,7 @@ class Game < ActiveRecord::Base
   ##return true if the king is currently in check
   def check?(color)
     ##cycle through each piece of the opposing color
-    @king = pieces.where(:type => "King", :color => color)
+    @king = pieces.where(:type => "King", :color => color).first
 
     if color == "Black"
       @opposite_color = "White"
@@ -77,7 +77,7 @@ class Game < ActiveRecord::Base
       @opposite_color = "Black"
     end
 
-    @pieces = pieces.where(color: @opposite_color)
+    @pieces = pieces.where(color: @opposite_color).to_a
 
 
     ##if the piece can make a valid move to the king's position return true
