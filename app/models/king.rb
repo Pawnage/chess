@@ -1,8 +1,12 @@
 class King < Piece
-	def legal_move?
-	end
+  
+  def obstructed_positions(x, y)
+    puts "I'm a king"
+  end
 
-	def obstructed_positions(x, y)
-		puts "I'm a king"
-	end
+  def legal_move?(x, y)
+    (x >= 0 and x <= 7) and (y >= 0 and y <= 7)
+    self.legal_horiz_move?(x, y) || self.legal_vert_move?(x, y) || self.legal_diag_move?(x, y)
+  end
+
 end
