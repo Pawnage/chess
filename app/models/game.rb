@@ -66,4 +66,30 @@ class Game < ActiveRecord::Base
     return false
   end
 
+  ##return true if the king is currently in check
+  def check?(color)
+    ##cycle through each piece of the opposing color
+    @king = pieces.where(:type => "King", :color => color)
+
+    if color == "Black"
+      @opposite_color = "White"
+    else
+      @opposite_color = "Black"
+    end
+
+    @pieces = pieces.where(color: @opposite_color)
+
+
+    ##if the piece can make a valid move to the king's position return true
+    @pieces.each do |piece|
+      if piece.valid_move?(@king.row_position, @king.col_position)
+        return true
+      end
+    end
+
+    ##otherwise return false
+    return false
+
+  end
+
 end

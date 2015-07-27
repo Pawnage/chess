@@ -26,7 +26,7 @@ class GamesController < ApplicationController
 
 	  respond_to do |format|
 	  	format.html { render :show}
-	  	format.js {}
+	  	format.js { render 'show.js.erb'}
 	  end
 	end
 
